@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\danie\\Documents\\GitHub\\Die Buecherei\\Die Buecherei.csproj": {}
+    "C:\\Users\\danie\\Documents\\GitHub\\Die-Buecherei\\Die Buecherei.csproj": {}
   },
   "projects": {
-    "C:\\Users\\danie\\Documents\\GitHub\\Die Buecherei\\Die Buecherei.csproj": {
+    "C:\\Users\\danie\\Documents\\GitHub\\Die-Buecherei\\Die Buecherei.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\danie\\Documents\\GitHub\\Die Buecherei\\Die Buecherei.csproj",
+        "projectUniqueName": "C:\\Users\\danie\\Documents\\GitHub\\Die-Buecherei\\Die Buecherei.csproj",
         "projectName": "Die Buecherei",
-        "projectPath": "C:\\Users\\danie\\Documents\\GitHub\\Die Buecherei\\Die Buecherei.csproj",
+        "projectPath": "C:\\Users\\danie\\Documents\\GitHub\\Die-Buecherei\\Die Buecherei.csproj",
         "packagesPath": "C:\\Users\\danie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\danie\\Documents\\GitHub\\Die Buecherei\\obj\\",
+        "outputPath": "C:\\Users\\danie\\Documents\\GitHub\\Die-Buecherei\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -50,30 +50,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
