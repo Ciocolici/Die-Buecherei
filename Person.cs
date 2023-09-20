@@ -16,4 +16,12 @@ abstract class Person
 
     public string Name { get; protected set; }
     public int Alter { get; protected set; }
+
+    public virtual void ZeigInfo()
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Name: {Name}\nAlter: {Alter}");
+    }
+
+    public abstract void ZeigBewertung();
 }

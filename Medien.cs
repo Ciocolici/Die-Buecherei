@@ -25,7 +25,7 @@ abstract class Medien
         if (Verliehen)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
-            Console.WriteLine("Das Produkt is verliehen.");
+            Console.WriteLine("Das Produkt ist verliehen.");
 
             if (RueckgabefristUeberschritten)
             {
@@ -47,11 +47,31 @@ abstract class Medien
 
     public virtual void Ausleihen()
     {
-        Verliehen = true;
+        if (!Verliehen)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Erledigt. Sie haben das Produkt asugeliehen.");
+            Verliehen = true;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Unmöglich. Leider ist das produkt schon verliehen.");
+        }
     }
 
     public virtual void Ruecknahme()
     {
-        Verliehen = false;
+        if (Verliehen)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Erledigt. Das Produkt wurde zurückgegeben.");
+            Verliehen = false;
+        }   
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("Unmöglich. Das produkt ist nicht verliehen.");
+        }
     }
 }

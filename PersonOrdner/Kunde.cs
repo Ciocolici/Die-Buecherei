@@ -16,4 +16,16 @@ internal class Kunde : Person
 
     public string KundenID { get; set; }
     public string Bewertung { get; set; }
+
+    public override void ZeigInfo()
+    {
+        base.ZeigInfo();
+        Console.WriteLine($"KundenID: {KundenID}");
+    }
+
+    public override void ZeigBewertung()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"\nSie haben die Bücherei mit {Bewertung} Sternen bewertet.");
+    }
 }
