@@ -19,11 +19,17 @@ internal class Videos : Medien
 
     public override void Ausleihen()
     {
-        Verliehen = true;
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Es ist schon eine Weile her, seit ich einen {Genre}-Film gesehen habe. Ich habe gehört, dass {Name} besonders gut ist. Lassen Sie mich nach seiner Verfügbarkeit suchen!\n\n");
+        Thread.Sleep(2000);
+        base.Ausleihen();
     }
 
     public override void Ruecknahme()
     {
-        Verliehen = false;
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Hast du es genossen? Oder war {Dauer} zu lang? Geben Sie mir bitte einen Moment.\n\n");
+        Thread.Sleep(2000);
+        base.Ruecknahme();
     }
 }

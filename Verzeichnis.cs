@@ -1,4 +1,5 @@
 ﻿using Die_Buecherei.MedienOrdner;
+using Die_Buecherei.PersonOrdner;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,8 @@ namespace Die_Buecherei;
 
 internal class Verzeichnis
 {
-    List<Buecher> BuecherList = new List<Buecher>();
-    List<Buecher> SoftwareList = new List<Buecher>();
-    List<Buecher> VideosList = new List<Buecher>();
-    List<Buecher> KundeList = new List<Buecher>();
-
-    public Verzeichnis(List<Buecher> buecherList, List<Buecher> softwareList, List<Buecher> videosList, List<Buecher> kundeList)
-    {
-        BuecherList = buecherList;
-        SoftwareList = softwareList;
-        VideosList = videosList;
-        KundeList = kundeList;
-    }
+    public static List<Buecher> BuecherList { get; set; } = new List<Buecher>();
+    public static List<Software> SoftwareList { get; set; } = new List<Software>();
+    public static List<Videos> VideosList { get; set; } = new List<Videos>();
+    public static List<Kunde> KundeList { get; set; } = new List<Kunde>();
 }

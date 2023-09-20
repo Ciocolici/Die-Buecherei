@@ -20,11 +20,17 @@ internal class Buecher : Medien
 
     public override void Ausleihen()
     {
-        Verliehen = true;
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"{Autor} ist nie eine schlechte Wahl.\nLassen Sie mich überprüfen, ob es verfügbar ist.\n\n");
+        Thread.Sleep(2000);
+        base.Ausleihen();
     }
 
     public override void Ruecknahme()
     {
-        Verliehen = false;
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"Ich hoffe, dass Ihnen das Buch gefallen hat, ansonsten wird {Autor} bestimmt traurig sein. Bitte geben Sie mir einen kurzen Moment.\n\n");
+        Thread.Sleep(2000);
+        base.Ruecknahme();
     }
 }
