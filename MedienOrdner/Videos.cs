@@ -20,7 +20,7 @@ internal class Videos : Medien
     public override void Ausleihen()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Es ist schon eine Weile her, seit ich einen {Genre}-Film gesehen habe. Ich habe gehört, dass {Name} besonders gut ist. Lassen Sie mich nach seiner Verfügbarkeit suchen!\n\n");
+        Console.WriteLine($"\nEs ist schon eine Weile her, seit ich einen {Genre}-Film gesehen habe. Ich habe gehört, dass {Name} besonders gut ist. Bitte geben Sie mir einen kurzen Moment.\n\n");
         Thread.Sleep(2000);
         base.Ausleihen();
     }
@@ -28,7 +28,7 @@ internal class Videos : Medien
     public override void Ruecknahme()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Hast du es genossen? Oder war {Dauer} zu lang? Geben Sie mir bitte einen Moment.\n\n");
+        Console.WriteLine($"\nHaben Sie es genossen? Oder war {Dauer} zu lang? Geben Sie mir bitte einen Moment.\n\n");
         Thread.Sleep(2000);
         base.Ruecknahme();
     }

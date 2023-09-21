@@ -20,7 +20,7 @@ internal class Software : Medien
     public override void Ausleihen()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Gute Wahl. Ich habe gehört, dass das {Name} besonders gut für {Hardware} ist. Bitte geben Sie mir einen kurzen Moment.\n\n");
+        Console.WriteLine($"\nGute Wahl. Ich habe gehört, dass das {Name} besonders gut für {Hardware} ist. Bitte geben Sie mir einen kurzen Moment.\n\n");
         Thread.Sleep(2000);
         base.Ausleihen();
     }
@@ -28,7 +28,7 @@ internal class Software : Medien
     public override void Ruecknahme()
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"Ich hoffe, dass {Name} Ihnen nützlich war. Bitte geben Sie mir einen kurzen Moment.\n\n");
+        Console.WriteLine($"\nIch hoffe, dass {Name} Ihnen nützlich war. Bitte geben Sie mir einen kurzen Moment.\n\n");
         Thread.Sleep(2000);
         base.Ruecknahme();
     }

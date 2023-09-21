@@ -82,7 +82,9 @@ internal class Program
 
         bool check;
         bool repeat;
+        bool repeatProdukt;
         int kundenAuswahl;
+        int kundenErsteAuswahl;
         do
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -94,13 +96,13 @@ internal class Program
                 {
                     Console.WriteLine($"({zaehler}){kunde.KundenID}");
                     zaehler++;
-                }    
+                }
                 check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
                 Console.Clear();
             } while (check == false);
 
             Console.Clear();
-            if (kundenAuswahl == 1 )
+            if (kundenAuswahl == 1)
             {
                 kunde1.ZeigInfo();
                 kunde1.ZeigBewertung();
@@ -138,17 +140,15 @@ internal class Program
         Console.ReadLine();
         Console.Clear();
 
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("Für welches Produkttyp haben Sie Interesse?");
-
-        do
+        while(true)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            repeat = false;
             int zaehler = 1;
             do
             {
-                Console.WriteLine("(1)Buecher\n(2)Software\n(3)Videos");
+                Console.WriteLine("Für welches Produkttyp haben Sie Interesse?");
+                Console.WriteLine("\n(1)Bücher\n(2)Software\n(3)Videos");
+                Console.WriteLine("(4)Ich würde lieber ihre Bücherei verlassen.");
                 check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
                 Console.Clear();
             } while (check == false);
@@ -156,43 +156,713 @@ internal class Program
             Console.Clear();
             if (kundenAuswahl == 1)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
-                foreach (var buch in Verzeichnis.BuecherList)
+                do
                 {
+                    zaehler = 1;
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
+                    foreach (var buch in Verzeichnis.BuecherList)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n({zaehler}){buch.Name}, geschrieben von {buch.Autor}\t, mit{buch.Seite} Seiten.");
+                        zaehler++;
+                    }
+                    repeatProdukt = true;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nFür welches Produkt haben Sie Interesse?");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\n({zaehler})Name:{buch.Name}\tAutor:{buch.Autor}\tSeiten:{buch.Seite}");
-                    zaehler++;
-                }
+                    Console.WriteLine("\n(6)Ich würde lieber ein anderes Produkttyp auswählen.");
+
+                    do
+                    {
+                        check = int.TryParse(Console.ReadLine(), out kundenErsteAuswahl);
+                        Console.Clear();
+                    } while (check == false);
+
+                    if (kundenErsteAuswahl == 1)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit das Buch {buecher1.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if(kundenAuswahl == 1)
+                            {
+                                buecher1.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                buecher1.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                buecher1.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+
+                    }
+                    else if (kundenErsteAuswahl == 2)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit das Buch {buecher2.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                buecher2.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                buecher2.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                buecher2.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 3)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit das Buch {buecher3.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                buecher3.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                buecher3.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                buecher3.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 4)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit das Buch {buecher4.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                buecher4.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                buecher4.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                buecher4.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 5)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit das Buch {buecher5.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                buecher5.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                buecher5.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                buecher5.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }    
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 6)
+                    {
+                        repeatProdukt = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("\nBitte wählen Sie richtig aus.\n");
+                    }
+
+                } while (repeatProdukt == true);
             }
             else if (kundenAuswahl == 2)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
-                foreach (var software in Verzeichnis.SoftwareList)
+                do
                 {
+                    zaehler = 1;
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
+                    foreach (var software in Verzeichnis.SoftwareList)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n({zaehler}){software.Name}, als {software.Nutzung}, für {software.Hardware}.");
+                        zaehler++;
+                    }
+                    repeatProdukt = true;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nFür welches Produkt haben Sie Interesse?");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\n({zaehler})Name:{software.Name}\tNutzung:{software.Nutzung}\tHardware:{software.Hardware}");
-                    zaehler++;
-                }
+                    Console.WriteLine("\n(6)Ich würde lieber ein anderes Produkttyp auswählen.");
+
+                    do
+                    {
+                        check = int.TryParse(Console.ReadLine(), out kundenErsteAuswahl);
+                        Console.Clear();
+                    } while (check == false);
+
+                    if (kundenErsteAuswahl == 1)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit der Software {software1.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                software1.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                software1.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                software1.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+
+                    }
+                    else if (kundenErsteAuswahl == 2)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit der Software {software2.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                software2.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                software2.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                software2.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 3)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit der Software {software3.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                software3.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                software3.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                software3.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 4)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit der Software {software4.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                software4.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                software4.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                software4.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 5)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit der Software {software5.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                software5.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                software5.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                software5.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 6)
+                    {
+                        repeatProdukt = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("\nBitte wählen Sie richtig aus.\n");
+                    }
+                } while (repeatProdukt == true);
             }
             else if (kundenAuswahl == 3)
             {
-                Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
-                foreach (var video in Verzeichnis.VideosList)
+                do
                 {
+                    zaehler = 1;
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nHier ist eine Liste von dem, was wir haben");
+                    foreach (var video in Verzeichnis.VideosList)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"\n({zaehler}){video.Name}, Genre {video.Genre}, und Dauer: {video.Dauer}.");
+                        zaehler++;
+                    }
+                    repeatProdukt = true;
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\nFür welches Produkt haben Sie Interesse?");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"\n({zaehler})Name:{video.Name}\tGenre:{video.Genre}\tDauer:{video.Dauer}");
-                    zaehler++;
-                }
+                    Console.WriteLine("\n(6)Ich würde lieber ein anderes Produkttyp auswählen.");
+
+                    do
+                    {
+                        check = int.TryParse(Console.ReadLine(), out kundenErsteAuswahl);
+                        Console.Clear();
+                    } while (check == false);
+
+                    if (kundenErsteAuswahl == 1)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit dem Video {video1.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                video1.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                video1.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                video1.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+
+                    }
+                    else if (kundenErsteAuswahl == 2)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit dem Video {video2.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                video2.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                video2.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                video2.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 3)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit dem Video {video3.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                video3.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                video3.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                video3.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 4)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit dem Video {video4.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                video4.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                video4.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                video4.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 5)
+                    {
+                        bool repeatProdukt2 = true;
+                        do
+                        {
+                            Console.Clear();
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine($"Was möchten Sie mit dem Video {video5.Name} tun?");
+                            Console.WriteLine("\n\n(1)Verfügbarkeit überprüfen\n(2)Ausleihen\n(3)Zurückgeben\n(4)Ein anderes Produkt auswählen");
+                            do
+                            {
+                                check = int.TryParse(Console.ReadLine(), out kundenAuswahl);
+                                Console.Clear();
+                            } while (check == false);
+
+                            if (kundenAuswahl == 1)
+                            {
+                                video5.Verleihbar();
+                            }
+                            else if (kundenAuswahl == 2)
+                            {
+                                video5.Ausleihen();
+                            }
+                            else if (kundenAuswahl == 3)
+                            {
+                                video5.Ruecknahme();
+                            }
+                            else if (kundenAuswahl == 4)
+                            {
+                                repeatProdukt2 = false;
+                            }
+                            else
+                            {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                Console.WriteLine("\nBitte wählen Sie richtig aus.\nDrücken Sie ENTER um fortzufahren.");
+                                Console.ReadLine();
+                            }
+                        } while (repeatProdukt2 == true);
+                    }
+                    else if (kundenErsteAuswahl == 6)
+                    {
+                        repeatProdukt = false;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.WriteLine("\nBitte wählen Sie richtig aus.\n");
+                    }
+                } while (repeatProdukt == true);
             }
+            else if (kundenAuswahl == 4)
+            {
+                Environment.Exit(0);
+            }    
             else
             {
-                repeat = true;
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("\nBitte wählen Sie richtig aus.\n");
             }
-        } while (repeat == true);
+        }
     }
 }

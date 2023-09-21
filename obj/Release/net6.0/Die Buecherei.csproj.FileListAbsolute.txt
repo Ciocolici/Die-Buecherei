@@ -1,0 +1,14 @@
+C:\Users\danie\Documents\GitHub\Die-Buecherei\bin\Release\net6.0\Die Buecherei.exe
+C:\Users\danie\Documents\GitHub\Die-Buecherei\bin\Release\net6.0\Die Buecherei.deps.json
+C:\Users\danie\Documents\GitHub\Die-Buecherei\bin\Release\net6.0\Die Buecherei.runtimeconfig.json
+C:\Users\danie\Documents\GitHub\Die-Buecherei\bin\Release\net6.0\Die Buecherei.dll
+C:\Users\danie\Documents\GitHub\Die-Buecherei\bin\Release\net6.0\Die Buecherei.pdb
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.AssemblyInfoInputs.cache
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.AssemblyInfo.cs
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.csproj.CoreCompileInputs.cache
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.dll
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\refint\Die Buecherei.dll
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.pdb
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\Die Buecherei.genruntimeconfig.cache
+C:\Users\danie\Documents\GitHub\Die-Buecherei\obj\Release\net6.0\ref\Die Buecherei.dll
