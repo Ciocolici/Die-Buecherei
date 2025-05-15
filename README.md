@@ -1,4 +1,4 @@
-# Die-Buecherei
+# Die Bücherei
 
 A C# Console App developed as an exercise during my retraining as an IT Specialist in Application Development (Fachinformatiker für Anwendungsentwicklung) at Lutz + Grub Academy. The application simulates a library system for managing the lending of different media types: books, software, and videos.
 
